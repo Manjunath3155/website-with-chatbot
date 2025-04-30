@@ -34,7 +34,7 @@ const ChatWindow: React.FC = () => {
 
 
         try {
-            const response = await fetch('/api/chat', {
+            const response = await fetch('https://webchatbot-backend.onrender.com/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: userMessage.text }),
