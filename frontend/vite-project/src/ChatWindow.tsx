@@ -1,7 +1,7 @@
 import React, { useState, useRef, KeyboardEvent } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+    import ReactMarkdown from 'react-markdown';
+    import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+    import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 
 interface Message {
@@ -38,7 +38,7 @@ const ChatWindow: React.FC = () => {
 
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/chat', {
+            const response = await fetch('https://webchatbot-backend.onrender.com/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: userMessage.text }),
