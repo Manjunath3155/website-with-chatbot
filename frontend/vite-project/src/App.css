@@ -35,7 +35,7 @@
   background: #22c55e;
   color: #fff;
   border-radius: 16px 16px 4px 16px;
-  padding: 14px 22px;
+  padding: 5px 22px;
   max-width: 60%;
   font-size: 1.1rem;
   word-break: break-word;
@@ -48,7 +48,7 @@
   background: #23272f;
   color: #f3f4f6;
   border-radius: 16px 16px 16px 4px;
-  padding: 14px 22px;
+  padding: 10px 22px;
   max-width: 60%;
   font-size: 1.1rem;
   word-break: break-word;
@@ -75,6 +75,17 @@
   color: #fff;
   outline: none;
 }
+
+.message-ai {
+  font-size: 14px; /* Adjust to 13px or 12px if you want it smaller */
+  line-height: 1.5;
+}
+
+.message-user {
+  font-size: 14px; /* Adjust to 13px or 12px if you want it smaller */
+  line-height: 1.5;
+}
+
 
 .chat-input-area button {
   padding: 12px 24px;

@@ -1,4 +1,8 @@
 import React, { useState, useRef, KeyboardEvent } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
 
 interface Message {
     id: number;
@@ -34,7 +38,7 @@ const ChatWindow: React.FC = () => {
 
 
         try {
-            const response = await fetch('https://webchatbot-backend.onrender.com/chat', {
+            const response = await fetch('http://127.0.0.1:5000/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: userMessage.text }),
@@ -73,8 +77,30 @@ const ChatWindow: React.FC = () => {
                 {messages.map((msg) => (
                     <div className="message-row" key={msg.id}>
                         <div className={msg.sender === 'user' ? 'message-user' : 'message-ai'}>
-                            {msg.text}
+                            <ReactMarkdown
+                                children={msg.text}
+                                components={{
+                                    code({ node, inline, className, children, ...props }) {
+                                        const match = /language-(\w+)/.exec(className || '');
+                                        return !inline ? (
+                                            <SyntaxHighlighter
+                                                style={oneDark}
+                                                language={match?.[1] || ''}
+                                                PreTag="div"
+                                                {...props}
+                                            >
+                                                {String(children).replace(/\n$/, '')}
+                                            </SyntaxHighlighter>
+                                        ) : (
+                                            <code className={className} {...props}>
+                                                {children}
+                                            </code>
+                                        );
+                                    },
+                                }}
+                            />
                         </div>
+
                     </div>
                 ))}
                 {loading && (
