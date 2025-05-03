@@ -49,8 +49,8 @@
   color: #f3f4f6;
   border-radius: 16px 16px 16px 4px;
   padding: 10px 22px;
-  max-width: 60%;
-  font-size: 1.1rem;
+  max-width: 83%;
+  font-size: 1 rem;
   word-break: break-word;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
@@ -78,7 +78,7 @@
 
 .message-ai {
   font-size: 14px; /* Adjust to 13px or 12px if you want it smaller */
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 .message-user {
